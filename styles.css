@@ -1,0 +1,188 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffe5e5;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+.flower {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.f-wrapper {
+    position: absolute;
+    left: 50%;
+    bottom: 2%;
+    transform: translateX(-50%);
+    animation: flowing 2s ease-in-out infinite;
+}
+
+.f-wrapper--2 {
+    left: 35%;
+    bottom: 5%;
+    transform-origin: 10% 10%;
+    animation: flowing 2.3s ease-in-out infinite;
+}
+
+.f-wrapper--3 {
+    left: 60%;
+    bottom: 5%;
+    animation: flowing 1.9s ease-in-out infinite;
+}
+
+.flower__line {
+    width: 2px;
+    height: 200px;
+    background-color: #2ecc71;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.f {
+    position: absolute;
+    top: 10px;
+    left: -10px;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+}
+
+.flower__leaf {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 0 50% 50%;
+    background-color: #eb4d4b;
+    transform-origin: 0 100%;
+}
+
+.flower__leaf--1 { transform: rotate(0deg); }
+.flower__leaf--2 { transform: rotate(45deg); }
+.flower__leaf--3 { transform: rotate(90deg); }
+.flower__leaf--4 { transform: rotate(135deg); }
+.flower__leaf--5 { transform: rotate(180deg); }
+.flower__leaf--6 { transform: rotate(225deg); }
+.flower__leaf--7 { transform: rotate(270deg); }
+.flower__leaf--8 { transform: rotate(315deg); }
+
+.flower__fall-down--yellow {
+    animation: flower-fall-down-yellow 8s ease-in-out infinite;
+}
+
+.flower__fall-down--pink {
+    animation: flower-fall-down-pink 5s ease-in-out infinite;
+}
+
+.flower__fall-down--purple {
+    animation: flower-fall-down-purple 6s ease-in-out infinite;
+}
+
+@keyframes flowing {
+    0%, 100% { transform: translateX(-50%) rotate(2deg); }
+    50% { transform: translateX(-50%) rotate(-2deg); }
+}
+
+@keyframes flower-fall-down-yellow {
+    0% { transform: rotate(315deg); }
+    30% { transform: translate(0, 25px) rotate(360deg); }
+    100% { transform: translate(100px, 800px) rotate(720deg); }
+}
+
+@keyframes flower-fall-down-pink {
+    0% { transform: rotate(315deg); }
+    30% { transform: translate(0, 25px) rotate(360deg); }
+    100% { transform: translate(-100px, 800px) rotate(720deg); }
+}
+
+@keyframes flower-fall-down-purple {
+    0% { transform: rotate(315deg); }
+    30% { transform: translate(0, 25px) rotate(360deg); }
+    100% { transform: translate(50px, 800px) rotate(720deg); }
+}
+
+.container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    max-width: 90%;
+}
+
+h1 {
+    font-family: 'Pacifico', cursive;
+    color: #e91e63;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+button {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#yesBtn {
+    background-color: #4caf50;
+    color: white;
+}
+
+#notSureBtn {
+    background-color: #2196f3;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+    transform: scale(1.05);
+}
+
+#cameraContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#video {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+@media (max-width: 768px) {
+    h1 { font-size: 1.5rem; }
+    .f-wrapper { transform: scale(0.7) translateX(-50%); }
+    .f-wrapper--2 { transform: scale(0.7) translateX(-50%); }
+    .f-wrapper--3 { transform: scale(0.7) translateX(-50%); }
+}
